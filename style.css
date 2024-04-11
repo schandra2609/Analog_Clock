@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #57c7f3, #1a6fd1, #05447b, #00070b);
+}
+
+.clock {
+    height: 60vh;
+    width: 60vh;
+    position: relative;
+    background-color: lightgray;
+    border-radius: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background: radial-gradient(circle, rgb(2, 48, 105), rgb(1, 41, 62), rgb(1, 14, 61), rgb(9, 11, 26));
+}
+
+.clock::before {
+    content: "";
+    height: 61vh;
+    width: 61vh;
+    position: absolute;
+    border-radius: 75px;
+    background: linear-gradient(rgb(144, 0, 255), rgb(20, 20, 251), rgb(8, 179, 247), rgb(52, 243, 18), rgb(218, 221, 23), rgb(255, 145, 0), rgb(245, 12, 12));
+    z-index: -1;
+    box-shadow: 50px 30px 150px black;
+    border: none;
+}
+
+.number {
+    transform: rotate(calc(30deg * var(--n)));
+    position: absolute;
+    text-align: center;
+    inset: 2vh;
+    font-size: 4vh;
+    color: rgb(82, 217, 251);
+    text-shadow: 0 0 15px rgb(239, 2, 101);
+}
+
+.number b {
+    transform: rotate(calc(-30deg * var(--n)));
+    display: inline-block;
+}
+
+.center {
+    background-color: gray;
+    height: 1.75vh;
+    width: 1.75vh;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.hour-hand, .minute-hand, .second-hand {
+    --rotate: 0;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%) rotate(calc(var(--rotate) * 1deg));
+    border-radius: 5vh;
+    transform-origin: bottom;
+}
+
+.hour-hand {
+    height: 15vh;
+    width: 1.5vh;
+    /* background: linear-gradient(rgb(255, 2, 158), rgb(0, 162, 255)); */
+    background-color: black;
+}
+
+.minute-hand {
+    height: 20vh;
+    width: 1vh;
+    /* background: linear-gradient(rgb(255, 2, 2), rgb(0, 255, 8)); */
+    background-color: blue;
+}
+
+.second-hand {
+    height: 23vh;
+    width: 0.5vh;
+    /* background: linear-gradient(rgb(2, 255, 36), rgb(38, 0, 255)); */
+    background-color: red;
+}
